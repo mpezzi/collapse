@@ -1,0 +1,8 @@
+name            = Collapse
+description     = Provides collapsible areas.
+core            = 6.x
+package         = User Interface
+version         = 6.x-1.x
+
+dependencies[]  = jquery_update
+dependencies[]  = libraries

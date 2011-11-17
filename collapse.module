@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Provides collapsible areas.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function collapse_theme() {
+  return array(
+    'collapse' => array(
+      'arguments' => array('type' => NULL, 'heading' => NULL, 'content' => NULL, 'options' => array()),
+      'template' => 'collapse',
+      'path' => drupal_get_path('module', 'collapse') . '/theme',
+      'file' => 'theme.inc',
+    ),
+  );
+}
+
+/**
+ * Adds required CSS/JavaScript.
+ *
+ * @param $type
+ *   A class type for the collapsible element.
+ * @param $options
+ *   An array of options to send to jQuery Collapse
+ *   @see http://webcloud.se/code/jQuery-Collapse/
+ */
+function collapse_add($selector, $options = array()) {
+  static $added;
+
+  if ( !isset($added['.']) ) {
+    drupal_add_js(libraries_get_path('collapse') . '/src/jquery.collapse.js');
+    drupal_add_js(drupal_get_path('module', 'collapse') . '/collapse.js');
+    $added['.'] = TRUE;
+    
+  }
+
+  if ( !isset($added[$selector]) ) {
+    drupal_add_js(array('collapse' => array($selector => $options)), 'setting');
+    $added[$selector] = TRUE;
+  }
+}
