@@ -29,7 +29,7 @@ function collapse_theme() {
  *   An array of options to send to jQuery Collapse
  *   @see http://webcloud.se/code/jQuery-Collapse/
  */
-function collapse_add($selector, $options = array()) {
+function collapse_add($type, $options = array()) {
   static $added;
 
   if ( !isset($added['.']) ) {
@@ -39,8 +39,8 @@ function collapse_add($selector, $options = array()) {
     
   }
 
-  if ( !isset($added[$selector]) ) {
-    drupal_add_js(array('collapse' => array($selector => $options)), 'setting');
-    $added[$selector] = TRUE;
+  if ( !isset($added[$type]) ) {
+    drupal_add_js(array('collapse' => array($type => $options)), 'setting');
+    $added[$type] = TRUE;
   }
 }
