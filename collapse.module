@@ -37,7 +37,6 @@ function collapse_add($type, $options = array()) {
     drupal_add_js(libraries_get_path('collapse') . '/src/jquery.collapse.js');
     drupal_add_js(drupal_get_path('module', 'collapse') . '/collapse.js');
     $added['.'] = TRUE;
-    
   }
 
   if ( !isset($added[$type]) ) {
