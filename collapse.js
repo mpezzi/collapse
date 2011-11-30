@@ -23,7 +23,7 @@ Drupal.behaviors.collapse.effects = {
   slide: function() {
     this.animate({
       opacity: 'toggle',
-      height: 'toggle',
+      height: 'toggle'
     }, 250);
   }
 };
